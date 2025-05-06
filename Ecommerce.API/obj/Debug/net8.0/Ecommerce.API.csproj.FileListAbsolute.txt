@@ -43,9 +43,6 @@ C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.sourcelink.json
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.dll
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\refint\Ecommerce.API.dll
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.pdb
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\bin\Debug\net8.0\appsettings.json
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\bin\Debug\net8.0\Ecommerce.API.staticwebassets.endpoints.json
@@ -208,5 +205,8 @@ C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerc.301F8E8C.Up2Date
+C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.dll
+C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\refint\Ecommerce.API.dll
+C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.pdb
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.genruntimeconfig.cache
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\ref\Ecommerce.API.dll

@@ -40,7 +40,7 @@ namespace Ecommerce.API.Controllers
         [HttpGet]
         public async Task<ActionResult> Get(int id)
         {
-            return Ok(await _context.Countries.ToListAsync());
+            return Ok(await _context.Countries.Include(c => c.States).ToListAsync());
         }
 
         [HttpPost]
