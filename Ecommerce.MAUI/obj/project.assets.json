@@ -26406,11 +26406,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\isaac\\Desktop\\Desarrollo Android\\Ecommerce\\Ecommerce\\Ecommerce.MAUI\\Ecommerce.MAUI.csproj",
+      "projectUniqueName": "C:\\Users\\isaac\\Desktop\\Desarrollo Android\\Ecommerce\\Ecommerce.MAUI\\Ecommerce.MAUI.csproj",
       "projectName": "Ecommerce.MAUI",
-      "projectPath": "C:\\Users\\isaac\\Desktop\\Desarrollo Android\\Ecommerce\\Ecommerce\\Ecommerce.MAUI\\Ecommerce.MAUI.csproj",
+      "projectPath": "C:\\Users\\isaac\\Desktop\\Desarrollo Android\\Ecommerce\\Ecommerce.MAUI\\Ecommerce.MAUI.csproj",
       "packagesPath": "C:\\Users\\isaac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\isaac\\Desktop\\Desarrollo Android\\Ecommerce\\Ecommerce\\Ecommerce.MAUI\\obj\\",
+      "outputPath": "C:\\Users\\isaac\\Desktop\\Desarrollo Android\\Ecommerce\\Ecommerce.MAUI\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

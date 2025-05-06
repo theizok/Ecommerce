@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/7DH1Qz6T8M=",
+  "dgSpecHash": "v5uoSpBBpQo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\isaac\\Desktop\\Desarrollo Android\\Ecommerce\\Ecommerce\\Ecommerce.MAUI\\Ecommerce.MAUI.csproj",
+  "projectFilePath": "C:\\Users\\isaac\\Desktop\\Desarrollo Android\\Ecommerce\\Ecommerce.MAUI\\Ecommerce.MAUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\isaac\\.nuget\\packages\\googlegson\\2.11.0.3\\googlegson.2.11.0.3.nupkg.sha512",
     "C:\\Users\\isaac\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",
