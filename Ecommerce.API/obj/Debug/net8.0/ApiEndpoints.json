@@ -1,5 +1,69 @@
 [
   {
+    "ContainingType": "Ecommerce.API.Controllers.CategoriesController",
+    "Method": "Post",
+    "RelativePath": "api/categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "Ecommerce.Shared.Entities.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.CategoriesController",
+    "Method": "Get",
+    "RelativePath": "api/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.CategoriesController",
+    "Method": "Put",
+    "RelativePath": "api/categories",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "Ecommerce.Shared.Entities.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.CategoriesController",
+    "Method": "Delete",
+    "RelativePath": "api/categories",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.CitiesController",
     "Method": "Put",
     "RelativePath": "api/cities",
@@ -9,7 +73,7 @@
     "Parameters": [
       {
         "Name": "city",
-        "Type": "Ecommerce.Shared.Entitites.City",
+        "Type": "Ecommerce.Shared.Entities.City",
         "IsRequired": true
       }
     ],
@@ -41,7 +105,7 @@
     "Parameters": [
       {
         "Name": "city",
-        "Type": "Ecommerce.Shared.Entitites.City",
+        "Type": "Ecommerce.Shared.Entities.City",
         "IsRequired": true
       }
     ],
@@ -73,7 +137,7 @@
     "Parameters": [
       {
         "Name": "country",
-        "Type": "Ecommerce.Shared.Entitites.Country",
+        "Type": "Ecommerce.Shared.Entities.Country",
         "IsRequired": true
       }
     ],
@@ -105,7 +169,7 @@
     "Parameters": [
       {
         "Name": "country",
-        "Type": "Ecommerce.Shared.Entitites.Country",
+        "Type": "Ecommerce.Shared.Entities.Country",
         "IsRequired": true
       }
     ],
@@ -128,6 +192,122 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce.API.Controllers.ProductsController",
+    "Method": "Post",
+    "RelativePath": "api/products",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productCategory",
+        "Type": "Ecommerce.Shared.Entities.ProductCategory",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductsController",
+    "Method": "Delete",
+    "RelativePath": "api/products",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductsController",
+    "Method": "Put",
+    "RelativePath": "api/products",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productCategory",
+        "Type": "Ecommerce.Shared.Entities.ProductCategory",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductsController",
+    "Method": "Get",
+    "RelativePath": "api/products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductCategoriesController",
+    "Method": "Get",
+    "RelativePath": "api/productscategory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductCategoriesController",
+    "Method": "Delete",
+    "RelativePath": "api/productscategory",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductCategoriesController",
+    "Method": "Post",
+    "RelativePath": "api/productscategory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productCategory",
+        "Type": "Ecommerce.Shared.Entities.ProductCategory",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductCategoriesController",
+    "Method": "Put",
+    "RelativePath": "api/productscategory",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productCategory",
+        "Type": "Ecommerce.Shared.Entities.ProductCategory",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.StatesController",
     "Method": "Put",
     "RelativePath": "api/states",
@@ -137,7 +317,7 @@
     "Parameters": [
       {
         "Name": "state",
-        "Type": "Ecommerce.Shared.Entitites.State",
+        "Type": "Ecommerce.Shared.Entities.State",
         "IsRequired": true
       }
     ],
@@ -169,7 +349,7 @@
     "Parameters": [
       {
         "Name": "state",
-        "Type": "Ecommerce.Shared.Entitites.State",
+        "Type": "Ecommerce.Shared.Entities.State",
         "IsRequired": true
       }
     ],

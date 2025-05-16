@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Shared.Entitites
+namespace Ecommerce.Shared.Entities
 {
     public class Country
     {

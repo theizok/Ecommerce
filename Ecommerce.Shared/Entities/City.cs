@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Shared.Entitites
+namespace Ecommerce.Shared.Entities
 {
     public class City
     {
@@ -19,5 +19,7 @@ namespace Ecommerce.Shared.Entitites
         public State State { get; set; }
 
         public int StateId { get; set; }
+
+        public ICollection<User> ? Users { get; set; }
     }
 }
