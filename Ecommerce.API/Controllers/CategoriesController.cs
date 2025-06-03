@@ -1,4 +1,5 @@
 ﻿using Ecommerce.API.Data;
+using Ecommerce.Shared.DTOs;
 using Ecommerce.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +17,20 @@ namespace Ecommerce.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(Category category){
+        public async Task<ActionResult> Post(CategoryDTO categoryDTO){
             try 
             {
-                 _context.Add(category);
+               
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var category = new Category
+                {
+                    Name = categoryDTO.Name,
+                    ProductCategoryId = categoryDTO.ProductCategoryId
+                };
+
+                _context.Add(category);
                 await _context.SaveChangesAsync();
                 return Ok(category);
             }
@@ -42,13 +53,28 @@ namespace Ecommerce.API.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Put(Category category) {
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(Category category, int id) {
             try 
             {
-                _context.Update(category);
-                await _context.SaveChangesAsync();
-                return Ok(category);
+
+                var categoryToUpdate = await _context.Categories.FirstOrDefaultAsync(category => category.Id == id);
+
+                if (categoryToUpdate == null)
+                {
+                    return BadRequest("No se encontro una categoria con ese ID");
+                }
+                else 
+                {
+
+                    categoryToUpdate.Name = category.Name;
+
+                    _context.Update(categoryToUpdate);
+
+                    await _context.SaveChangesAsync();
+                    return Ok(categoryToUpdate);
+                }
+
             }
             catch (Exception ex) 
             {
@@ -56,7 +82,7 @@ namespace Ecommerce.API.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id) {
             try
             {

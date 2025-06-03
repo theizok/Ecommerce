@@ -8,8 +8,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "category",
-        "Type": "Ecommerce.Shared.Entities.Category",
+        "Name": "categoryDTO",
+        "Type": "Ecommerce.Shared.DTOs.CategoryDTO",
         "IsRequired": true
       }
     ],
@@ -34,7 +34,7 @@
   {
     "ContainingType": "Ecommerce.API.Controllers.CategoriesController",
     "Method": "Put",
-    "RelativePath": "api/categories",
+    "RelativePath": "api/categories/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -43,6 +43,11 @@
         "Name": "category",
         "Type": "Ecommerce.Shared.Entities.Category",
         "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -50,7 +55,7 @@
   {
     "ContainingType": "Ecommerce.API.Controllers.CategoriesController",
     "Method": "Delete",
-    "RelativePath": "api/categories",
+    "RelativePath": "api/categories/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -58,7 +63,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -129,22 +134,6 @@
   },
   {
     "ContainingType": "Ecommerce.API.Controllers.CountriesController",
-    "Method": "Put",
-    "RelativePath": "api/countries",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "country",
-        "Type": "Ecommerce.Shared.Entities.Country",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Ecommerce.API.Controllers.CountriesController",
     "Method": "Get",
     "RelativePath": "api/countries",
     "HttpMethod": "GET",
@@ -170,6 +159,27 @@
       {
         "Name": "country",
         "Type": "Ecommerce.Shared.Entities.Country",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.CountriesController",
+    "Method": "Put",
+    "RelativePath": "api/countries/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "country",
+        "Type": "Ecommerce.Shared.Entities.Country",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

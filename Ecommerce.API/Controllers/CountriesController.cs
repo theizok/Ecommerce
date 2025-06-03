@@ -17,22 +17,40 @@ namespace Ecommerce.API.Controllers
             _context = context;
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Put(Country country) {
-            try 
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(Country country, int id) {
+            try
             {
-                _context.Update(country);
+                //Se busca el pais a actualizar su nombre
+                var countryToUpdate = await _context
+                     .Countries
+                     .FirstOrDefaultAsync(countryF => countryF.Id == id);
 
-                await _context.SaveChangesAsync();
+                //Si no se encuentra nada se devuelve NotFound
+                if (countryToUpdate == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    countryToUpdate.Name = country.Name;
 
-                return Ok(country);
+                    _context.Update(countryToUpdate);
+
+                    await _context.SaveChangesAsync();
+                    return Ok(countryToUpdate);
+                }
+
+
             }
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
 
         }
+
+        
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)

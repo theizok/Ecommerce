@@ -13,7 +13,7 @@ namespace Ecommerce.Shared.Entities
         public int Id { get; set; }
 
         [Display(Name="CategoriaProducto")]
-        [Required(ErrorMessage ="El campo {o} es obligatorio")]
+        [Required(ErrorMessage ="El campo {0} es obligatorio")]
         [MaxLength(100)]
         public string Name { get; set; }
 

@@ -200,14 +200,9 @@ C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.sourcelink.json
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\scopedcss\bundle\Ecommerce.API.styles.css
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets\msbuild.Ecommerce.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets\msbuild.Ecommerce.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets\msbuild.build.Ecommerce.API.props
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Ecommerce.API.props
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Ecommerce.API.props
-C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerc.301F8E8C.Up2Date
 C:\Users\isaac\Desktop\Desarrollo Android\Ecommerce\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.dll
