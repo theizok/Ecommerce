@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 namespace Ecommerce.API.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : DbContext 
     {
         public DataContext(DbContextOptions<DataContext> options) :base(options) {
         }
@@ -15,6 +15,8 @@ namespace Ecommerce.API.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductsImages { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,7 +27,6 @@ namespace Ecommerce.API.Data
             modelBuilder.Entity<ProductCategory>().HasIndex(x => x.Name).IsUnique();
             modelBuilder.Entity<Category>().HasIndex("Name","ProductCategoryId").IsUnique();
             modelBuilder.Entity<Product>().HasIndex("Name","ProductCategoryId").IsUnique();
-
         }
 
     }
