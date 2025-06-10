@@ -1,5 +1,7 @@
 ﻿using Ecommerce.API.Data;
 using Ecommerce.Shared.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +9,8 @@ namespace Ecommerce.API.Controllers
 {
     [ApiController]
     [Route("api/countries")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     public class CountriesController : Controller
     {
 
@@ -100,6 +104,15 @@ namespace Ecommerce.API.Controllers
                 return BadRequest(ex.Message);
             }
            
+        }
+
+        [AllowAnonymous]
+        [HttpGet("combo/{stateId:int}")]
+        public async Task<ActionResult> GetCombo(int stateId) 
+        {
+            return Ok(await _context.Cities
+                .Where(x => x.StateId == stateId)
+                .ToListAsync());
         }
     }
 }

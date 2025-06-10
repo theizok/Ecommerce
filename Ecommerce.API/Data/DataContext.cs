@@ -1,8 +1,9 @@
 ﻿using Ecommerce.Shared.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 namespace Ecommerce.API.Data
 {
-    public class DataContext : DbContext 
+    public class DataContext : IdentityDbContext<User>
     {
         public DataContext(DbContextOptions<DataContext> options) :base(options) {
         }
@@ -24,9 +25,9 @@ namespace Ecommerce.API.Data
             modelBuilder.Entity<Country>().HasIndex(x =>x.Name).IsUnique();
             modelBuilder.Entity<State>().HasIndex("Name","CountryId").IsUnique();
             modelBuilder.Entity<City>().HasIndex("Name","StateId").IsUnique();
-            modelBuilder.Entity<ProductCategory>().HasIndex(x => x.Name).IsUnique();
-            modelBuilder.Entity<Category>().HasIndex("Name","ProductCategoryId").IsUnique();
-            modelBuilder.Entity<Product>().HasIndex("Name","ProductCategoryId").IsUnique();
+            modelBuilder.Entity<Product>().HasIndex(x => x.Name).IsUnique();
+            modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
+
         }
 
     }

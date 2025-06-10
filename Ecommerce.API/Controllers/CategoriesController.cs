@@ -1,6 +1,8 @@
 ﻿using Ecommerce.API.Data;
 using Ecommerce.Shared.DTOs;
 using Ecommerce.Shared.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +10,8 @@ namespace Ecommerce.API.Controllers
 {
     [ApiController]
     [Route("api/categories")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     public class CategoriesController : Controller
     {
         public readonly DataContext _context;
@@ -44,7 +48,7 @@ namespace Ecommerce.API.Controllers
         public async Task<ActionResult> Get(int id) {
             try
             {
-                return Ok(await _context.Categories.Include(c => c.ProductCategory).ToListAsync());
+                return Ok(await _context.Categories.Include(c => c.ProductCategories).ToListAsync());
 
             }
             catch (Exception ex) 

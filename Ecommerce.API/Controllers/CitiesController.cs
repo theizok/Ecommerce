@@ -1,5 +1,7 @@
 ﻿using Ecommerce.API.Data;
 using Ecommerce.Shared.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +9,8 @@ namespace Ecommerce.API.Controllers
 {
     [ApiController]
     [Route("api/cities")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     public class CitiesController : Controller
     {
         public readonly DataContext _context;
@@ -20,20 +24,20 @@ namespace Ecommerce.API.Controllers
         [HttpPut]
         public async Task<ActionResult> Put(City city)
         {
-            try 
-            {    
+            try
+            {
                 _context.Update(city);
                 await _context.SaveChangesAsync();
                 return Ok(city);
-            } 
+            }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-           
+
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             try
@@ -53,7 +57,7 @@ namespace Ecommerce.API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult> Get(int id)
+        public async Task<ActionResult> Get()
         {
             try
             {
@@ -78,5 +82,15 @@ namespace Ecommerce.API.Controllers
                 return BadRequest(ex.Message); 
             }
         }
+
+        [AllowAnonymous]
+        [HttpGet("combo/{stateId:int}")]
+        public async Task<ActionResult> GetCombo(int stateId)
+        {
+            return Ok(await _context.Cities
+                .Where(x => x.StateId == stateId)
+                .ToListAsync());
+        }
+
     }
 }

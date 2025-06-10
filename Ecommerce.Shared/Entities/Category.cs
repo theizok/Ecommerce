@@ -14,10 +14,14 @@ namespace Ecommerce.Shared.Entities
 
         [Display(Name = "Categoria")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        [MaxLength(100)]
-        public string Name { get; set; }
+        [MaxLength(100, ErrorMessage = "El campo {0} debe tener máximo {1} caractéres")]
 
-        public ProductCategory? ProductCategory { get; set; }
+        public string Name { get; set; } = null;
+
+        public ICollection<ProductCategory>? ProductCategories { get; set; }
+        [Display(Name = "Productos")]
+        public int ProductCategoriesNumber => ProductCategories == null ? 0 : ProductCategories.Count;
+
         public int? ProductCategoryId { get; set; }
     }
 }

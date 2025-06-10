@@ -1,5 +1,79 @@
 [
   {
+    "ContainingType": "Eommerce.API.Controllers.AccountsController",
+    "Method": "Put",
+    "RelativePath": "api/accounts",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "Ecommerce.Shared.Entities.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Eommerce.API.Controllers.AccountsController",
+    "Method": "Get",
+    "RelativePath": "api/accounts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Eommerce.API.Controllers.AccountsController",
+    "Method": "ChangePasswordAsync",
+    "RelativePath": "api/accounts/changePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Ecommerce.Shared.DTOs.ChangePasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Eommerce.API.Controllers.AccountsController",
+    "Method": "CreateUser",
+    "RelativePath": "api/accounts/CreateUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Ecommerce.Shared.DTOs.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Eommerce.API.Controllers.AccountsController",
+    "Method": "Login",
+    "RelativePath": "api/accounts/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Ecommerce.Shared.DTOs.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.CategoriesController",
     "Method": "Post",
     "RelativePath": "api/categories",
@@ -91,13 +165,7 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -126,6 +194,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.CitiesController",
+    "Method": "GetCombo",
+    "RelativePath": "api/cities/combo/{stateId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stateId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -202,6 +286,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce.API.Controllers.CountriesController",
+    "Method": "GetCombo",
+    "RelativePath": "api/countries/combo/{stateId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stateId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.ProductsController",
     "Method": "Post",
     "RelativePath": "api/products",
@@ -252,66 +352,14 @@
   {
     "ContainingType": "Ecommerce.API.Controllers.ProductsController",
     "Method": "Get",
-    "RelativePath": "api/products",
+    "RelativePath": "api/products/{id}",
     "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Ecommerce.API.Controllers.ProductCategoriesController",
-    "Method": "Get",
-    "RelativePath": "api/productscategory",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Ecommerce.API.Controllers.ProductCategoriesController",
-    "Method": "Delete",
-    "RelativePath": "api/productscategory",
-    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Ecommerce.API.Controllers.ProductCategoriesController",
-    "Method": "Post",
-    "RelativePath": "api/productscategory",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "productCategory",
-        "Type": "Ecommerce.Shared.Entities.ProductCategory",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Ecommerce.API.Controllers.ProductCategoriesController",
-    "Method": "Put",
-    "RelativePath": "api/productscategory",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "productCategory",
-        "Type": "Ecommerce.Shared.Entities.ProductCategory",
         "IsRequired": true
       }
     ],
@@ -375,6 +423,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.StatesController",
+    "Method": "GetCombo",
+    "RelativePath": "api/states/combo/{countryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "countryId",
         "Type": "System.Int32",
         "IsRequired": true
       }

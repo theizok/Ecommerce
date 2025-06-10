@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Shared.Entities
+namespace Ecommerce.Shared.DTOs
 {
-    public class Product
+    public class ProductDTO
     {
         public int Id { get; set; }
 
-        [Display(Name="Producto")]
-        [Required(ErrorMessage ="El campo {0} es obligatorio")]
-        [MaxLength(100)]
-        public string Name { get; set; }
+        [Display(Name = "Nombre")]
+        [MaxLength(50, ErrorMessage = "El campo {0} debe tener máximo {1} caractéres.")]
+        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
+        public string Name { get; set; } = null!;
 
         [DataType(DataType.MultilineText)]
         [Display(Name = "Descripción")]
@@ -26,7 +26,6 @@ namespace Ecommerce.Shared.Entities
         [DisplayFormat(DataFormatString = "{0:C2}")]
         [Display(Name = "Precio")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-
         public decimal Price { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N2}")]
@@ -34,18 +33,9 @@ namespace Ecommerce.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public float Stock { get; set; }
 
+        public List<int>? ProductCategoryIds { get; set; }
 
-        public ICollection<ProductCategory> ProductCategories { get; set; }
-
-        [Display(Name = "Categorías")]
-        public int ProductCategoriesNumber => ProductCategories == null ? 0 : ProductCategories.Count;
-
-        public ICollection<ProductImage> ProductImages { get; set; }
-        [Display(Name = "Imágenes")]
-        public int ProductImagesNumber => ProductImages == null ? 0 : ProductImages.Count;
-
-        [Display(Name = "Imagén")]
-        public string MainImage => ProductImages == null ? string.Empty : ProductImages.FirstOrDefault()!.Image;
+        public List<string>? ProductImages { get; set; }
 
     }
 }

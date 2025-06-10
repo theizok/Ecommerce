@@ -143,7 +143,7 @@ namespace Ecommerce.Mobile.ViewModels
                 {
                     Id = SelectedCategory.Id,
                     Name = result,
-                    ProductCategory = SelectedCategory.ProductCategory
+                    ProductCategories = SelectedCategory.ProductCategories
                 };
 
                 bool success = await _apiService.UpdateCategoryAsync(categoryToUpdate);

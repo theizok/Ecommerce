@@ -12,24 +12,13 @@ namespace Ecommerce.Shared.Entities
     {
         public int Id { get; set; }
 
-        [Display(Name="CategoriaProducto")]
-        [Required(ErrorMessage ="El campo {0} es obligatorio")]
-        [MaxLength(100)]
-        public string Name { get; set; }
+        public Product Product { get; set; } = null!;
 
-        public ICollection<Category> Categories { get; set; }
+        public int ProductId { get; set; }
 
-        [Display(Name = "Categorias")]
+        public Category Category { get; set; } = null!;
 
-        public int CategoriesNumber => Categories == null ? 0 : Categories.Count; 
-
-        public ICollection<Product> Products { get; set; }
-        
-        [Display(Name = "Productos")]
-        public int ProductsNumber => Products == null ? 0 : Products.Count();
-
-        [Display(Name = "Imagenes")]
-        public ICollection<ProductImage> ProductImages { get; set; }
+        public int CategoryId { get; set; }
 
 
     } 

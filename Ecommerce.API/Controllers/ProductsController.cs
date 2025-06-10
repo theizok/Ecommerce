@@ -1,11 +1,14 @@
 ﻿using Ecommerce.API.Data;
 using Ecommerce.Shared.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.API.Controllers
 {
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/products")]
     public class ProductsController : Controller
     {
@@ -49,24 +52,24 @@ namespace Ecommerce.API.Controllers
 
         [HttpPut]
         public async Task<ActionResult> Put(ProductCategory productCategory) {
-                try 
-                {
-                    _context.Update(productCategory);
-                    await _context.SaveChangesAsync();
-                    return Ok(productCategory);
-                } 
-                catch (Exception ex)
-                {
-                    return BadRequest($"Error al actualizar {ex.Message}");
-                }
+            try
+            {
+                _context.Update(productCategory);
+                await _context.SaveChangesAsync();
+                return Ok(productCategory);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al actualizar {ex.Message}");
+            }
         }
 
 
-        [HttpGet]
-        public async Task<ActionResult> Get() {
+        [HttpGet("{id}")]
+        public async Task<ActionResult> Get(int id) {
             try 
             {
-                return Ok(await _context.Products.Include(p => p.ProductCategory).ToListAsync());
+                return Ok(await _context.Products.Include(p => p.ProductCategories).ToListAsync());
             } 
             catch (Exception ex) 
             {
