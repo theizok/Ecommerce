@@ -6,9 +6,17 @@
     xmlns:views="clr-namespace:Ecommerce.Mobile.Views"
     Title="Ecommerce.Mobile">
 
-    <!-- Menú lateral -->
+    <!-- Wrapper obligatorio con FlyoutItem -->
     <FlyoutItem Title="Gestión" Icon="home.png">
-        <ShellContent Title="Países" ContentTemplate="{DataTemplate views:MainPage}" />
-        <ShellContent Title="Categorías" ContentTemplate="{DataTemplate views:CategoriesPage}" />
+        <ShellContent 
+            Title="Países" 
+            ContentTemplate="{DataTemplate views:MainPage}" 
+            Route="mainpage" />
+
+        <ShellContent 
+            Title="Categorías" 
+            ContentTemplate="{DataTemplate views:CategoriesPage}" 
+            Route="categories" />
     </FlyoutItem>
+
 </Shell>

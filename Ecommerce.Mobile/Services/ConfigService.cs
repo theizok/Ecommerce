@@ -11,9 +11,9 @@ namespace Ecommerce.Mobile.Services
         public static string GetConfigService()
         {
 #if ANDROID
-                return "https://10.10.1.55:7147/api/";
+                return "https://192.168.10.9:7147/api/";
 #else
-            return "http://localhost:7147/api/countries";
+            return "https://localhost:7147/api/";
 #endif
         }
     }

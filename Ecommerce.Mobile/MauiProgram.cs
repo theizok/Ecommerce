@@ -21,21 +21,20 @@ namespace Ecommerce.Mobile
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            // Registrar servicios
+            // Servicios
             builder.Services.AddSingleton<ApiService>();
 
-            // Registrar ViewModels
+            // ViewModels
+            builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddSingleton<CountriesViewModel>();
-
-
             builder.Services.AddSingleton<CategoriesViewModel>();
 
-            builder.Services.AddTransient<CategoriesPage>();
+            // Páginas
+            builder.Services.AddTransient<LoginPage>(); // fuera del Shell
+            builder.Services.AddSingleton<MainPage>();  // dentro del Shell
+            builder.Services.AddSingleton<CategoriesPage>();
 
-            // Registrar Páginas
-            builder.Services.AddTransient<MainPage>();
-
-            // Configuración de la Shell
+            // Shell
             builder.Services.AddSingleton<AppShell>();
 
 

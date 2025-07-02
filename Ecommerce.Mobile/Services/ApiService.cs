@@ -1,9 +1,11 @@
 ﻿
+using Ecommerce.Shared.DTOs;
+using Ecommerce.Shared.Entities;
+using Ecommerce.Shared.Responses;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using Ecommerce.Shared.Entities;
-using Ecommerce.Shared.DTOs;
 
 
 namespace Ecommerce.Mobile.Services
@@ -35,8 +37,11 @@ namespace Ecommerce.Mobile.Services
         {
             try
             {
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 Debug.WriteLine($"Realizando solicitud de GET:  {_baseUrl}");
-                var response = await _httpClient.GetAsync(_baseUrl+"countries");
+                var response = await _httpClient.GetAsync(_baseUrl + "countries");
                 Debug.WriteLine($"Codigo de respuesta: {response.StatusCode}");
 
                 if (!response.IsSuccessStatusCode)
@@ -92,7 +97,11 @@ namespace Ecommerce.Mobile.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync($"{_baseUrl+"countries"}/{id}");
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
+                var response = await _httpClient.GetAsync($"{_baseUrl + "countries"}/{id}");
                 response.EnsureSuccessStatusCode();
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonSerializer.Deserialize<Country>(content, _serializerOptions);
@@ -106,14 +115,17 @@ namespace Ecommerce.Mobile.Services
 
         public async Task<bool> UpdateCountryAsync(Country country)
         {
-            try 
-            { 
+            try
+            {
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 var json = JsonSerializer.Serialize<Country>(country, _serializerOptions);
-                var content = new StringContent(json, Encoding.UTF8, "application/json"); 
-                var response = await _httpClient.PutAsync($"{_baseUrl+"countries"}/{country.Id}", content);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PutAsync($"{_baseUrl + "countries"}/{country.Id}", content);
 
                 return response.IsSuccessStatusCode;
-            } 
+            }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error al actualizar el pais {ex.Message}");
@@ -125,9 +137,13 @@ namespace Ecommerce.Mobile.Services
         {
             try
             {
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
                 var json = JsonSerializer.Serialize<Country>(country, _serializerOptions);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync(_baseUrl+"countries", content);
+                var response = await _httpClient.PostAsync(_baseUrl + "countries", content);
 
                 return response.IsSuccessStatusCode;
             }
@@ -142,7 +158,11 @@ namespace Ecommerce.Mobile.Services
         {
             try
             {
-                var response = await _httpClient.DeleteAsync($"{_baseUrl+"countries"}/{id}");
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
+                var response = await _httpClient.DeleteAsync($"{_baseUrl + "countries"}/{id}");
                 response.EnsureSuccessStatusCode();
                 var content = await response.Content.ReadAsStringAsync();
                 return response.IsSuccessStatusCode;
@@ -161,8 +181,12 @@ namespace Ecommerce.Mobile.Services
 
             try
             {
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
                 Debug.WriteLine($"Realizando solicitud de GET:  {_baseUrl}");
-                var response = await _httpClient.GetAsync(_baseUrl+"categories");
+                var response = await _httpClient.GetAsync(_baseUrl + "categories");
                 Debug.WriteLine($"Codigo de respuesta: {response.StatusCode}");
 
                 if (!response.IsSuccessStatusCode)
@@ -218,6 +242,10 @@ namespace Ecommerce.Mobile.Services
         {
             try
             {
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
                 var response = await _httpClient.GetAsync($"{_baseUrl + "categories"}/{id}");
                 response.EnsureSuccessStatusCode();
                 var content = await response.Content.ReadAsStringAsync();
@@ -234,6 +262,10 @@ namespace Ecommerce.Mobile.Services
         {
             try
             {
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
                 var json = JsonSerializer.Serialize<Category>(category, _serializerOptions);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PutAsync($"{_baseUrl + "categories"}/{category.Id}", content);
@@ -251,6 +283,10 @@ namespace Ecommerce.Mobile.Services
         {
             try
             {
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
                 var json = JsonSerializer.Serialize<CategoryDTO>(category, _serializerOptions);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync(_baseUrl + "categories", content);
@@ -275,6 +311,10 @@ namespace Ecommerce.Mobile.Services
         {
             try
             {
+                var token = await GetTokenAsync();
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+
                 var response = await _httpClient.DeleteAsync($"{_baseUrl + "categories"}/{id}");
                 response.EnsureSuccessStatusCode();
                 var content = await response.Content.ReadAsStringAsync();
@@ -286,6 +326,67 @@ namespace Ecommerce.Mobile.Services
                 return false;
             }
         }
+
+        public async Task<bool> Login(LoginDTO mode)
+        {
+            try
+            {
+                var json = JsonSerializer.Serialize(mode, _serializerOptions);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await _httpClient.PostAsync($"{_baseUrl}accounts/Login", content);
+
+                var jsonS = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"Respuesta API: {jsonS}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine($"Error en API: {response.StatusCode}");
+                    return false;
+                }
+
+                TokenResponse? token;
+
+                try
+                {
+                    token = JsonSerializer.Deserialize<TokenResponse>(jsonS, _serializerOptions);
+                    Debug.WriteLine($"Token deserializado: {token?.Token}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error al deserializar el token: {ex.Message}");
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(token?.Token))
+                {
+                    Debug.WriteLine("Token nulo o vacío.");
+                    return false;
+                }
+
+                await SecureStorage.SetAsync("auth_token", token.Token);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error al iniciar sesión: {ex.Message}");
+                return false;
+            }
+        }
+
+        private async Task<string> GetTokenAsync()
+        {
+            try
+            {
+                return await SecureStorage.GetAsync("auth_token") ?? string.Empty;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"❌ Error al obtener token: {ex.Message}");
+                return string.Empty;
+            }
+        }
+
 
     }
 

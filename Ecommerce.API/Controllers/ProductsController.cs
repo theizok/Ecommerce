@@ -65,8 +65,8 @@ namespace Ecommerce.API.Controllers
         }
 
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult> Get(int id) {
+        [HttpGet]
+        public async Task<ActionResult> Get() {
             try 
             {
                 return Ok(await _context.Products.Include(p => p.ProductCategories).ToListAsync());
